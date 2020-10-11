@@ -1,0 +1,35 @@
+<htm>
+
+    <head>
+        <title>Tutorial1 | Div</title>
+        <style>
+        body {font-family:arial,helvetica,sans-serif;font-size:18px;}
+        </style>
+        <script>
+function youtube_parser(url) {
+    var regExp = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    alert(match[1]);
+    if (match && match[1].length == 11) {
+        urllink = match[1];
+        imagelink = "<img src=\"http:\/\/img.youtube.com\/vi\/"+urllink+"\/maxresdefault.jpg\">";
+    } else {
+        urllink = "test"
+    }
+    document.getElementById("ytimagelink").value = urllink;
+    document.getElementById("ytimage").innerHTML = imagelink;       
+}
+</script>
+    </head>
+
+    <body>
+<div><strong>Insert YouTube url:</strong></div>
+<input type="text" id="ytlink" style="width:500px;" onkeyup="youtube_parser(this.value)">
+    <hr>
+    <div><strong>Output: YouTube video id:</strong></div>
+    <input type="text" id="ytimagelink" value="" style="width:500px;">
+        <div><strong>Output: Thumbnail</strong></div>
+        <div id="ytimage"></div>
+ 
+    </body>
+</htm>
